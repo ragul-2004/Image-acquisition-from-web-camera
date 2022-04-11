@@ -21,8 +21,8 @@ Show the image or the live camera.
 End the program.
 ## Program:
 ~~~
-### Developed By: Syed Abdul Wasih H
-### Register No: 212221240057
+### Developed By: Ragul AC
+### Register No: 212221240042
 ~~~
 ## i) Write the frame as JPG file:
 ~~~
@@ -70,40 +70,36 @@ im.release()
 cv2.destroyAllWindows()
 ~~~
 ## iv) Rotate and display the video:
-~~~
+~~~import numpy as np
 import cv2
-import numpy as np
-cap = cv2.VideoCapture(0)
+im = cv2.VideoCapture(0)
 while True:
-    ret, frame = cap.read()
-    width = int(cap.get(3))
-    height = int(cap.get(4))
-    
-    image = np.zeros(frame.shape, np.uint8)
-    smaller_frame = cv2.resize(frame, (0,0), fx = 0.5, fy=0.5)
-    image[:height//2, :width//2] = smaller_frame
-    image[height//2:, :width//2] = smaller_frame
-    image[:height//2, width//2:] = smaller_frame
-    image[height//2:, width//2:] = smaller_frame
-
-    image[:height//2, :width//2] = cv2.rotate(smaller_frame,cv2.cv2.ROTATE_180)
-    cv2.imshow('image',image)
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    ret,frame = im.read()
+    width = int(im.get(3))
+    height = int(im.get(4))
+    image = np.zeros(frame.shape,np.uint8)
+    smallerFrame = cv2.resize(frame,(0,0),fx = 0.5,fy=0.5)
+    image[:height//2,:width//2] = cv2.rotate(smallerFrame,cv2.ROTATE_180)
+    image[height//2:, :width // 2] = smallerFrame
+    image[:height//2, width//2:] = smallerFrame
+    image[height//2:, width//2:] = cv2.rotate(smallerFrame,cv2.ROTATE_180)
+    cv2.imshow('frame',image)
+    if cv2.waitKey(1) == ord('q'):
         break
-videoCaptureObject.release()
+im.release()
 cv2.destroyAllWindows()
 ~~~
 
 ## Output:
 
 ### i) Write the frame as JPG image
-![output](./img/1.png)
+![output](1.png)
 ### ii) Display the video
-![output](./img/2.png)
+![output](2.png)
 ### iii) Display the video by resizing the window
-![output](./img/3.png)
+![output](3.png)
 ### iv) Rotate and display the video
-![output](./img/4.png)
+![output](4.png)
 
 ## Result:
 Thus the image is accessed from webcamera and displayed using openCV.
