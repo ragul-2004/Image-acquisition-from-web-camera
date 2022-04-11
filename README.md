@@ -21,8 +21,8 @@ Show the image or the live camera.
 End the program.
 ## Program:
 ~~~
-### Developed By: Ragul AC
-### Register No: 212221240042
+Developed By: Ragul AC
+Register No: 212221240042
 ~~~
 ## i) Write the frame as JPG file:
 ~~~
@@ -93,7 +93,7 @@ cv2.destroyAllWindows()
 ## Output:
 
 ### i) Write the frame as JPG image
-![output](1.png)
+![output](1.jpg)
 ### ii) Display the video
 ![output](2.png)
 ### iii) Display the video by resizing the window
